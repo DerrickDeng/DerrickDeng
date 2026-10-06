@@ -1,13 +1,34 @@
 # Agentic QA Workflow
 
-Agents turn a Jira story into traceable BDD tests, automate them with
-Playwright, and repair them when the app changes. Deterministic gates and evals
-decide which of their output is accepted.
+**Testing at the speed of AI coding.**
+
+- **Testing is now the bottleneck.** AI has made writing code much faster. If
+  testing keeps its old pace, delivery does not speed up.
+- **The bar for verification is higher.** More code is now written than anyone
+  reviews line by line, so tests carry more of the quality burden.
+- **So verification must be both stricter and faster.** In this workflow,
+  agents do the test work, and deterministic gates and evals decide what is
+  accepted.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/workflow-dark.svg">
   <img alt="A Jira story becomes traceable BDD tests in ai-native-test-design, then Playwright automation in ai-native-ui-automation, which runs against qa-dashboard. A requirement wiki feeds business rules to the automation. Four guardrails sit underneath: the spec is frozen, locators come from tool evidence, failures stay visible, and remote writes are explicit." src="assets/workflow-light.svg">
 </picture>
+
+## Results
+
+| Task | Before | With the workflow | Agent time |
+|---|---|---|---|
+| Design functional tests for one story | ~4 h | ~1 h · **4× faster** | [3 min](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md) |
+| Implement one BDD regression scenario | ~8 h | ~1 h · **8× faster** | [7 min](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-step-implementor) |
+| Repair a test broken by an app change | manual debugging | review the fix | [14 min](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-test-healer) |
+
+- **Before / With the workflow:** per story or scenario on a production banking
+  project. "With the workflow" includes human review of the agent's output.
+- **Agent time:** median wall-clock time of recorded eval runs, from the prompt
+  to the final report.
+- **Quality of those runs:** 155 / 164, 109 / 121, and 53 / 61 graded checks
+  passed. Small samples are reported as passed checks, not as success rates.
 
 ## How it works
 
@@ -21,16 +42,6 @@ decide which of their output is accepted.
 3. **Observe** · [qa-dashboard](https://github.com/DerrickDeng/qa-dashboard)\
    The app under test, and where results land: execution, defects, and AI
    effectiveness.
-
-## Evidence
-
-Skills are tested like code: fixed tasks, graded against written checks.
-Small samples are reported as passed checks, not as success rates.
-
-| Skill | Checks passed | Sample |
-|---|---|---|
-| [Functional test design](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md) | **155 / 164** (previous version 137 / 165) | 4 tasks × 3 runs |
-| [Test healer](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md) | **53 / 61** | 4 tasks × 1 run |
 
 Deterministic gates run on every change: 66 CLI and lint tests, and 42
 framework and skill contract tests.
