@@ -1,20 +1,26 @@
-# Derrick Deng
+# Agentic QA Workflow
 
-**QA lead · AI-native test automation**
-
-I build AI agents that design, automate, and repair tests, and the guardrails
-that decide whether their output can be trusted.
+Agents turn a Jira story into traceable BDD tests, automate them with
+Playwright, and repair them when the app changes. Deterministic gates and evals
+decide which of their output is accepted.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/workflow-dark.svg">
   <img alt="A Jira story becomes traceable BDD tests in ai-native-test-design, then Playwright automation in ai-native-ui-automation, which runs against qa-dashboard. A requirement wiki feeds business rules to the automation. Four guardrails sit underneath: the spec is frozen, locators come from tool evidence, failures stay visible, and remote writes are explicit." src="assets/workflow-light.svg">
 </picture>
 
-| Repository | What it does |
-|---|---|
-| **[ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)** | Turns a Jira story into traceable BDD tests, recommends the automation layer, and composes the release regression suite. |
-| **[ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)** | Playwright + playwright-bdd framework where agents implement missing steps and heal broken tests. |
-| **[qa-dashboard](https://github.com/DerrickDeng/qa-dashboard)** | The app under test, and where results land: execution, defects, and AI effectiveness. |
+## How it works
+
+1. **Design** · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)\
+   Reads the story and its acceptance criteria, then decides what to test, where
+   to automate, and how much to regress. Every `Then` traces back to the
+   requirement text it proves.
+2. **Automate** · [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)\
+   Implements missing steps from live browser evidence, and heals tests that
+   went red after an app change, without touching the spec.
+3. **Observe** · [qa-dashboard](https://github.com/DerrickDeng/qa-dashboard)\
+   The app under test, and where results land: execution, defects, and AI
+   effectiveness.
 
 ## Evidence
 
@@ -29,11 +35,7 @@ Small samples are reported as passed checks, not as success rates.
 Deterministic gates run on every change: 66 CLI and lint tests, and 42
 framework and skill contract tests.
 
-## Background
+---
 
-8 years in software quality, in banking (wealth management across Hong Kong,
-Singapore, and Taiwan) and telecom. QA owner and team lead; built UI and API
-automation and Jenkins regression from zero.
-
-Playwright · TypeScript · Cucumber / playwright-bdd · Python · Selenium · PyTest ·
-Jenkins · Claude Code · Codex · Gemini CLI
+Built by Derrick Deng, QA lead with 8 years in banking and telecom.\
+Playwright · TypeScript · playwright-bdd · Python · Jenkins · Claude Code · Codex · Gemini CLI
