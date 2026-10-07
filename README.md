@@ -6,9 +6,9 @@
   stays slow, delivery stays slow.
 - **Review cannot find all problems.** AI writes more code than people can
   review line by line. Tests must find the problems that review does not find.
-- **Verification must be stricter and faster.** In this workflow, agents do the
-  test work. Automated checks and a human review decide what gets merged. Evals
-  measure if the agents are reliable.
+- **This workflow makes verification faster and stricter.** Agents design tests
+  from each story, implement them in Playwright, and repair them when the app
+  changes. Each test traces back to the requirement text.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/workflow-dark.svg">
