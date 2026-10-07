@@ -10,7 +10,7 @@
 <text x="351.0" y="70" font-size="16" font-weight="700" fill="#0550ae" text-anchor="middle">ai-native-test-design</text>
 <text x="351.0" y="100" font-size="14" font-weight="400" fill="#1f2328" text-anchor="middle">What to test</text>
 <text x="351.0" y="122" font-size="14" font-weight="400" fill="#1f2328" text-anchor="middle">Where to automate</text>
-<text x="351.0" y="144" font-size="14" font-weight="400" fill="#1f2328" text-anchor="middle">How much to regress</text>
+<text x="351.0" y="144" font-size="14" font-weight="400" fill="#1f2328" text-anchor="middle">What goes into regression</text>
 <line x1="487" y1="104.0" x2="529" y2="104.0" stroke="#818b98" stroke-width="2" marker-end="url(#a)"/>
 <rect x="532" y="66.0" width="140" height="76" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
 <text x="602" y="98.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle">Traceable</text>
