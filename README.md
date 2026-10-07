@@ -23,26 +23,58 @@
 | Implement a BDD regression scenario of ~15 steps | ~1 day | ~1 h, with review and fixes | **~8×** |
 | Repair a test that fails after an app change | Manual debugging | Agent fix in [~15 min](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-test-healer), then review | — |
 
-- The manual, review, and total times are estimates from a production banking
-  project.
-- The agent times are median times of recorded eval runs. The time starts at
-  the prompt and stops at the final report.
-- In the eval runs, the agents passed 155 of 164 checks for test design, 109 of
-  121 for step implementation, and 53 of 61 for repair. We show small samples
-  as counts, not as success rates.
+The manual, review, and total times are estimates from a production banking
+project. The agent times are median times of recorded eval runs.
 
-## How it works
+## 1. Test design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
 
-1. **Design** · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)\
-   Reads the story and its acceptance criteria. Decides what to test, where to
-   automate, and how much regression is necessary. Each `Then` step refers to
-   the requirement text that it proves.
-2. **Automate** · [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)\
-   Implements missing steps from live browser evidence. Repairs tests that fail
-   after an app change. It does not change the spec.
-3. **Observe** · [qa-dashboard](https://github.com/DerrickDeng/qa-dashboard)\
-   The app under test. It also shows the results: execution, defects, and AI
-   effectiveness.
+| Skill | What it does | Benefit |
+|---|---|---|
+| `functional-test-design` | Splits each acceptance criterion into small claims, designs test data that can expose a wrong result, and writes the `.feature` file. An independent review checks the design. | No hidden rule is lost. Unclear requirements become open questions, not guesses. |
+| `automation-coverage-analysis` | Recommends the cheapest reliable layer for each behavior: unit, integration, or end-to-end. It keeps the recommendation apart from the evidence of existing tests. | Fewer slow end-to-end tests. No false coverage claims. |
+| `regression-suite-design` | Maps all functional tests of a module, selects a compact regression suite by business risk, and writes a Jira coverage table for the product owner. | A small suite that covers the key risks. Each choice has a reason. |
+| `jira-sync` CLI | Fetches requirement snapshots, lints features, and syncs to Jira or Zephyr only on an explicit command. The lint checks that each quote in the coverage trace is in the requirement. | Mechanical work stays deterministic. Nothing writes to Jira by accident. |
+| Requirement wiki | Compiles the stories into topic pages with OpenViking. Each rule links to its source story. | Agents find business rules across stories, and can check that the source is current. |
 
-Automated checks run on each change: 66 CLI and lint tests, and 42 framework
-and skill contract tests.
+The same skills run in Claude Code, Codex, and Gemini CLI. A check keeps the
+three copies the same.
+
+## 2. UI automation · [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
+
+| Skill | What it does | Benefit |
+|---|---|---|
+| `playwright-bdd-step-implementor` | Implements the missing steps of an authored scenario. The test runner stops at the missing step, and **Playwright CLI** reads the live page. Each locator comes from CLI output or `generate-locator`. | Code that follows the framework rules, with locators from real browser evidence. |
+| `playwright-bdd-test-healer` | Repairs a test that passed before and now fails. It reads the failure report, then the failed run's trace with the **Playwright trace CLI**. It opens a live debug session only when the trace is not enough. | Fixes go into Page Objects. No skip, retry, or fixed wait hides a real failure. |
+| `requirement-context-retrieval` | Searches the requirement wiki when a step needs a business rule, and checks that the cited story is current. | The agent uses the latest requirement. It reports a conflict between the page and the requirement. |
+
+**Rules that shape the agent's output.** `CLAUDE.md` is a short map that the
+agent reads first. It points to `CodeRules.md`, which has 92 numbered rules.
+ESLint and TypeScript enforce the rules that a machine can check, and 3 rules
+fail at runtime so that no one can skip them. Contract tests check that each
+skill still states the key rules.
+
+## 3. Skill evaluation
+
+**Skills are tested like code.** Each skill has golden tasks with written
+checks. A grader reviews each run against the checks. The tasks run again after
+each skill change to find regressions.
+
+**A self-built app under test.** The evals run against
+[QA Dashboard](https://github.com/DerrickDeng/qa-dashboard), an app built for
+this workflow. Its source is outside the agent's repository, so the agent cannot
+read the answers. It is a live app, so the evals see real behavior: the first
+eval run found a real filter race in the dashboard. The dashboard also measures
+the value of agents in daily use: adoption, edits before adoption, and accuracy
+against reviewed tests.
+
+**Counts, not success rates.** The samples are small, so the results show
+passed checks:
+
+| Skill | Checks passed | Sample |
+|---|---|---|
+| [Functional test design](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md) | 155 / 164 (previous version 137 / 165) | 4 tasks × 3 runs |
+| [Step implementor](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-step-implementor) | 109 / 121 | 7 tasks × 1 run |
+| [Test healer](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-test-healer) | 53 / 61 | 4 tasks × 1 run |
+
+Deterministic gates run on each change: 66 CLI and lint tests, and 42
+framework and skill contract tests.
