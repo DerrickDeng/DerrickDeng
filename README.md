@@ -46,8 +46,3 @@
 
 Automated checks run on each change: 66 CLI and lint tests, and 42 framework
 and skill contract tests.
-
----
-
-Built by Derrick Deng, QA lead with 8 years in banking and telecom.\
-Playwright · TypeScript · playwright-bdd · Python · Jenkins · Claude Code · Codex · Gemini CLI
