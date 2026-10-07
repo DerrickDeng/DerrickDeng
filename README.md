@@ -19,7 +19,7 @@
 
 | Task | Manual | With the workflow | Faster |
 |---|---|---|---|
-| Design functional tests for one story | ~1 h | ~15 min: agent draft in [3 min](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md), then 10 min of human review | **~4×** |
+| Design functional tests for one story | ~1 h | ~15 min: agent draft in [3 min](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md), then 10 min of review and fixes | **~4×** |
 | Implement a BDD regression scenario of ~15 steps | ~1 day | ~1 h, with review and fixes | **~8×** |
 | Repair a test that fails after an app change | Manual debugging | Agent fix in [~15 min](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-test-healer), then review | — |
 
