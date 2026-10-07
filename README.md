@@ -15,7 +15,7 @@
   <img alt="A Jira story becomes traceable BDD tests in ai-native-test-design, then Playwright scripts in ai-native-ui-automation. A requirement wiki gives business rules to the automation." src="assets/workflow-light.svg">
 </picture>
 
-## How much faster
+## Key outcomes
 
 | Task | Manual | With the workflow | Faster |
 |---|---|---|---|
