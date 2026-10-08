@@ -23,9 +23,6 @@
 | Implement a BDD regression scenario of ~15 steps | ~1 day | ~30 min, with review and fixes | **~16×** |
 | Repair a test that fails after an app change | ~half a day | ~30 min: agent fix in 20 min, then 10 min of review and fixes | **~8×** |
 
-The 3 min agent draft time is the median of recorded eval runs. All other
-times are estimates from a production banking project.
-
 ## 1. Test design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
 
 | Skill | What it does | Benefit |
