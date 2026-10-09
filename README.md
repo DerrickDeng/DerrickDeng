@@ -28,24 +28,24 @@
 
 ### 1. Test Design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
 
-| Skill | What it does | Benefit |
-|---|---|---|
-| [`functional-test-design`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/functional-test-design) | Writes Gherkin scenarios, test data, and requirement traces from a Story. Runs an independent review and records unresolved questions. | Makes missing coverage and unsupported expectations easier to find. |
-| [`automation-coverage-analysis`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/automation-coverage-analysis) | Recommends unit, integration, or end-to-end coverage for each behavior using architecture and test evidence. Reports coverage gaps and unknowns. | Helps reduce duplicate end-to-end tests without treating recommendations as existing coverage. |
-| [`regression-suite-design`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/regression-suite-design) | Selects regression scenarios by business risk from existing functional tests. Produces a BDD suite, full source mapping, and a Jira coverage table. | Keeps regression focused on key journeys and high-risk behavior, with clear reasons for selections and omissions. |
-| [`jira-sync` CLI](https://github.com/DerrickDeng/ai-native-test-design/blob/main/bin/jira-sync) | Fetches Jira requirement snapshots, lints and exports Gherkin, and uploads Story test content or creates Zephyr tests on explicit commands. | Reduces manual copying and applies validation before export or synchronization. |
-| [Requirement wiki](https://github.com/DerrickDeng/ai-native-test-design/tree/main/wiki) | Uses OpenViking to compile Stories and notes into cross-Story topic pages with source links. Exports the pages as Markdown. | Makes related business rules easier to find and check against their original sources. |
+| Component | What it does |
+|---|---|
+| [`functional-test-design`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/functional-test-design) | Writes Gherkin scenarios, test data, and requirement traces from a Story. Runs an independent review and records unresolved questions. |
+| [`automation-coverage-analysis`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/automation-coverage-analysis) | Recommends unit, integration, or end-to-end coverage for each behavior using architecture and test evidence. Reports coverage gaps and unknowns. |
+| [`regression-suite-design`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/regression-suite-design) | Selects regression scenarios by business risk from existing functional tests. Produces a BDD suite, full source mapping, and a Jira coverage table. |
+| [`jira-sync` CLI](https://github.com/DerrickDeng/ai-native-test-design/blob/main/bin/jira-sync) | Fetches Jira requirement snapshots, lints and exports Gherkin, and uploads Story test content or creates Zephyr tests on explicit commands. |
+| [Requirement wiki](https://github.com/DerrickDeng/ai-native-test-design/tree/main/wiki) | Uses OpenViking to compile Stories and notes into cross-Story topic pages with source links. Exports the pages as Markdown. |
 
 The same skills run in Claude Code, Codex, and Gemini CLI. A check keeps the
 three copies the same.
 
 ### 2. UI Automation · [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
 
-| Skill | What it does | Benefit |
-|---|---|---|
-| [`playwright-bdd-step-implementor`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | Implements missing steps in an authored BDD scenario using Playwright CLI browser evidence. Adds step definitions and Page Objects, then runs the scenario. | Preserves the Gherkin and test-runner state while grounding locators in browser evidence. |
-| [`playwright-bdd-test-healer`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-test-healer) | Diagnoses previously passing BDD tests from failure reports and traces. Uses live debugging when needed, repairs test code, and reruns affected scenarios. | Preserves the Gherkin and reports unresolved specification or data problems instead of hiding failures. |
-| [`requirement-context-retrieval`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/requirement-context-retrieval) | Searches the requirement Wiki through OpenViking, reads cited Stories or notes, and checks source freshness to answer a specific business question. | Supplies source-backed context and flags changed sources, conflicts, or missing rules before implementation. |
+| Component | What it does |
+|---|---|
+| [`playwright-bdd-step-implementor`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | Implements missing steps in an authored BDD scenario using Playwright CLI browser evidence. Adds step definitions and Page Objects, then runs the scenario. |
+| [`playwright-bdd-test-healer`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-test-healer) | Diagnoses previously passing BDD tests from failure reports and traces. Uses live debugging when needed, repairs test code, and reruns affected scenarios. |
+| [`requirement-context-retrieval`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/requirement-context-retrieval) | Searches the requirement Wiki through OpenViking, reads cited Stories or notes, and checks source freshness to answer a specific business question. |
 
 **Rules that shape the agent's output.** `CLAUDE.md` is a short map that the
 agent reads first. It points to `CodeRules.md`, which has 92 numbered rules.
