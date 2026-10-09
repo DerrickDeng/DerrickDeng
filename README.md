@@ -24,7 +24,9 @@
 | Repair a test that fails after an app change | ~half a day | ~30 min: agent fix in 20 min, then 10 min of review and fixes | **~8×** |
 | Sync one story with Jira: fetch the requirement, upload the BDD, and create the Zephyr tests | ~1 h | ~5 min with the `jira-sync` CLI | **~12×** |
 
-## 1. Test design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
+## Technical Details
+
+### 1. Test Design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
 
 | Skill | What it does | Benefit |
 |---|---|---|
@@ -37,7 +39,7 @@
 The same skills run in Claude Code, Codex, and Gemini CLI. A check keeps the
 three copies the same.
 
-## 2. UI automation · [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
+### 2. UI Automation · [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
 
 | Skill | What it does | Benefit |
 |---|---|---|
@@ -51,7 +53,7 @@ ESLint and TypeScript enforce the rules that a machine can check, and 3 rules
 fail at runtime so that no one can skip them. Contract tests check that each
 skill still states the key rules.
 
-## 3. Skill evaluation
+### 3. Skill Evaluation
 
 **Skills are tested like code.** Each skill has golden tasks with written
 checks. A grader reviews each run against the checks. The tasks run again after
