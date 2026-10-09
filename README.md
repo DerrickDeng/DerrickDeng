@@ -26,9 +26,11 @@
 
 ## Technical Details
 
+I built the skills and CLI, and integrated OpenViking for requirement retrieval.
+
 ### 1. Test Design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
 
-| Component | What it does |
+| Skill / Tool | What it does |
 |---|---|
 | [`functional-test-design`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/functional-test-design) | Writes Gherkin scenarios, test data, and requirement traces from a Story. Runs an independent review and records unresolved questions. |
 | [`automation-coverage-analysis`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/automation-coverage-analysis) | Recommends unit, integration, or end-to-end coverage for each behavior using architecture and test evidence. Reports coverage gaps and unknowns. |
@@ -41,7 +43,7 @@ three copies the same.
 
 ### 2. UI Automation · [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
 
-| Component | What it does |
+| Skill / Tool | What it does |
 |---|---|
 | [`playwright-bdd-step-implementor`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | Implements missing steps in an authored BDD scenario using Playwright CLI browser evidence. Adds step definitions and Page Objects, then runs the scenario. |
 | [`playwright-bdd-test-healer`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-test-healer) | Diagnoses previously passing BDD tests from failure reports and traces. Uses live debugging when needed, repairs test code, and reruns affected scenarios. |
