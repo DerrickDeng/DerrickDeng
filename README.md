@@ -67,14 +67,16 @@ eval run found a real filter race in the dashboard. The dashboard also measures
 the value of agents in daily use: adoption, edits before adoption, and accuracy
 against reviewed tests.
 
-**Counts, not success rates.** The samples are small, so the results show
-passed checks:
+**With and without the skill.** Both configurations work in the same
+repository, with the same rules files and lint. The difference shows what the
+skill adds. The samples are small, so the results show passed checks, not
+success rates.
 
-| Skill | Checks passed | Sample |
-|---|---|---|
-| [Functional test design](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md) | 155 / 164 (previous version 137 / 165) | 4 tasks × 3 runs |
-| [Step implementor](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-step-implementor) | 109 / 121 | 7 tasks × 1 run |
-| [Test healer](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-test-healer) | 53 / 61 | 4 tasks × 1 run |
+| Skill | Without the skill | With the skill | Sample |
+|---|---|---|---|
+| [Functional test design](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md#functional-test-design-with-and-without-the-skill) | 141 / 165 | **159 / 165** | 4 tasks × 3 runs |
+| [Step implementor](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-step-implementor-with-and-without-the-skill) | 13 / 36 | **34 / 36** | 2 tasks × 1 run |
+| [Test healer](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-test-healer) | 8 / 15 | **13 / 15** | 1 task × 1 run |
 
 Deterministic gates run on each change: 66 CLI and lint tests, and 42
 framework and skill contract tests.
