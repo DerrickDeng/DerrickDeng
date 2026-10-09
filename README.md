@@ -26,7 +26,7 @@
 
 ## Technical Details
 
-I built the skills and CLI, and integrated OpenViking for requirement retrieval.
+The workflow combines test design and automation skills, a Jira sync CLI, and OpenViking for requirement retrieval.
 
 ### 1. Test Design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
 
