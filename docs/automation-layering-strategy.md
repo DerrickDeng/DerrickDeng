@@ -8,7 +8,7 @@ Choose automation layers based on where a feature's behavior is implemented and 
 
 - Unit tests for logic within one component.
 - Integration tests for contracts and interactions between components.
-- End-to-end tests for important user journeys across the application.
+- End-to-end tests for the full system flow, from the front end through the back end and other system components.
 - Use implementation architecture to decide where each behavior should be tested.
 - Keep business risk and the cost of maintaining tests in the decision.
 
