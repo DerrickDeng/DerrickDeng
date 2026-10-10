@@ -44,9 +44,9 @@ Project: [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-a
 
 | Skill / Tool | What it does |
 |---|---|
-| [`playwright-bdd-step-implementor`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | Implements missing steps in an authored BDD scenario using Playwright CLI browser evidence. Adds step definitions and Page Objects, then runs the scenario. |
-| [`playwright-bdd-test-healer`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-test-healer) | Diagnoses previously passing BDD tests from failure reports and traces. Uses live debugging when needed, repairs test code, and reruns affected scenarios. |
-| [`requirement-context-retrieval`](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/requirement-context-retrieval) | Searches the requirement Wiki through OpenViking, reads cited Stories or notes, and checks source freshness to answer a specific business question. |
+| [playwright bdd step implementor](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | Implements missing steps in an authored BDD scenario using Playwright CLI browser evidence. Adds step definitions and Page Objects, then runs the scenario. |
+| [playwright bdd test healer](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-test-healer) | Diagnoses previously passing BDD tests from failure reports and traces. Uses live debugging when needed, repairs test code, and reruns affected scenarios. |
+| [requirement context retrieval](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/requirement-context-retrieval) | Searches the requirement Wiki through OpenViking, reads cited Stories or notes, and checks source freshness to answer a specific business question. |
 
 **Rules that shape the agent's output.** `CLAUDE.md` is a short map that the
 agent reads first. It points to `CodeRules.md`, which has 92 numbered rules.
