@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/abstract-ai-banner.png" width="600" alt="Minimal cyan and magenta shapes with two small cartoon creatures." />
+  <img src="assets/abstract-ai-banner.png" width="800" alt="Minimal cyan and magenta shapes with two small cartoon creatures." />
 </p>
 
 # Derrick Deng
