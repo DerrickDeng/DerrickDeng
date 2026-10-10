@@ -26,6 +26,8 @@
 
 ## Technical Details
 
+Agent workflows built on Claude Code and Codex, with Gemini CLI support for test design.
+
 ### 1. Test Design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
 
 | Skill / Tool | What it does |
