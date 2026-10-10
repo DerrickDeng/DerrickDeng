@@ -32,7 +32,7 @@ Project: [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-d
 
 | Skill / Tool | What it does |
 |---|---|
-| [`functional-test-design`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/functional-test-design) | Reads the Story and relevant related Stories to understand requirements.<br>Organizes test points.<br>Records requirement defects and test logic that needs clarification.<br>Writes BDD `.feature` test cases.<br>Checks requirement traceability, runs lint, and completes an independent review. |
+| [`functional-test-design`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/functional-test-design) | Reads the Story and relevant related Stories to understand requirements. Organizes test points. Records requirement defects and test logic that needs clarification. Writes BDD `.feature` test cases. Checks requirement traceability, runs lint, and completes an independent review. |
 | [`automation-coverage-analysis`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/automation-coverage-analysis) | Recommends unit, integration, or end-to-end coverage for each behavior using architecture and test evidence. Reports coverage gaps and unknowns. |
 | [`regression-suite-design`](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/regression-suite-design) | Selects regression scenarios by business risk from existing functional tests. Produces a BDD suite, full source mapping, and a Jira coverage table. |
 | [`jira-sync` CLI](https://github.com/DerrickDeng/ai-native-test-design/blob/main/bin/jira-sync) | Fetches Jira requirement snapshots, lints and exports Gherkin, and uploads Story test content or creates Zephyr tests on explicit commands. |
