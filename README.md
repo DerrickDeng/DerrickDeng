@@ -32,11 +32,11 @@ Project: [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-d
 
 | Skill / Tool | What it does |
 |---|---|
-| [Functional Test Design](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/functional-test-design) | Reads the Story and relevant related Stories to understand requirements. Organizes test points. Records requirement defects and test logic that needs clarification. Writes BDD `.feature` test cases. Checks requirement traceability, runs lint, and completes an independent review. |
-| [Automation Coverage Analysis](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/automation-coverage-analysis) | Recommends automation test layers based on each feature’s implementation architecture. |
-| [Regression Suite Design](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/regression-suite-design) | Combines existing functional test scenarios into representative user journeys for release regression. Adds high-risk scenarios based on business risk. |
-| [Jira CLI](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/testcase-agent-cli) | Downloads Jira Story requirements and referenced screenshots into local requirement files. Uploads BDD test cases to the Story ticket and creates or updates Zephyr tests. |
-| [Requirement Wiki](https://github.com/DerrickDeng/ai-native-test-design/tree/main/wiki) | Uses OpenViking, a third-party LLM Wiki tool, to organize Stories into a Requirement Wiki. Helps agents find relevant requirements and retrieve context for test design and automation. |
+| [functional test design](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/functional-test-design) | Reads the Story and relevant related Stories to understand requirements. Organizes test points. Records requirement defects and test logic that needs clarification. Writes BDD `.feature` test cases. Checks requirement traceability, runs lint, and completes an independent review. |
+| [automation coverage analysis](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/automation-coverage-analysis) | Recommends automation test layers based on each feature’s implementation architecture. |
+| [regression suite design](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/regression-suite-design) | Combines existing functional test scenarios into representative user journeys for release regression. Adds high-risk scenarios based on business risk. |
+| [jira cli](https://github.com/DerrickDeng/ai-native-test-design/tree/main/skills/testcase-agent-cli) | Downloads Jira Story requirements and referenced screenshots into local requirement files. Uploads BDD test cases to the Story ticket and creates or updates Zephyr tests. |
+| [requirement wiki](https://github.com/DerrickDeng/ai-native-test-design/tree/main/wiki) | Uses OpenViking, a third-party LLM Wiki tool, to organize Stories into a Requirement Wiki. Helps agents find relevant requirements and retrieve context for test design and automation. |
 
 ### 2. UI Automation
 
