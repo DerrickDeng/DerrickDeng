@@ -1,5 +1,7 @@
 # Automation Layering Strategy
 
+![Test pyramid: unit tests, integration tests, and end-to-end tests for the full system flow.](../assets/test-pyramid.svg)
+
 Draft outline.
 
 Choose automation layers based on where a feature's behavior is implemented and what each test needs to verify.
