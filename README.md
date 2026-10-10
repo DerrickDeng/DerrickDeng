@@ -1,3 +1,5 @@
+![A curious AI robot exploring a universe of ideas.](assets/ai-explorer-banner.png)
+
 # Derrick Deng
 
 QA workflows, test process, and automation strategy.
