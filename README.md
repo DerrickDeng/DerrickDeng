@@ -38,9 +38,6 @@ Project: [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-d
 | [`jira-sync` CLI](https://github.com/DerrickDeng/ai-native-test-design/blob/main/bin/jira-sync) | Fetches Jira requirement snapshots, lints and exports Gherkin, and uploads Story test content or creates Zephyr tests on explicit commands. |
 | [Requirement wiki](https://github.com/DerrickDeng/ai-native-test-design/tree/main/wiki) | Uses OpenViking to compile Stories and notes into cross-Story topic pages with source links. Exports the pages as Markdown. |
 
-The same skills run in Claude Code, Codex, and Gemini CLI. A check keeps the
-three copies the same.
-
 ### 2. UI Automation
 
 Project: [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
