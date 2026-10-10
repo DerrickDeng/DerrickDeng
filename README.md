@@ -26,7 +26,9 @@
 
 Agent workflows built on Claude Code, Codex, and Gemini CLI.
 
-### 1. Test Design · [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
+### 1. Test Design
+
+Project: [ai-native-test-design](https://github.com/DerrickDeng/ai-native-test-design)
 
 | Skill / Tool | What it does |
 |---|---|
@@ -39,7 +41,9 @@ Agent workflows built on Claude Code, Codex, and Gemini CLI.
 The same skills run in Claude Code, Codex, and Gemini CLI. A check keeps the
 three copies the same.
 
-### 2. UI Automation · [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
+### 2. UI Automation
+
+Project: [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
 
 | Skill / Tool | What it does |
 |---|---|
