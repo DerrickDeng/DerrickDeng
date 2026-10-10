@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="520" viewBox="0 0 880 520" role="img" aria-labelledby="title desc">
+<title id="title">Test pyramid</title>
+<desc id="desc">Unit tests form the base, integration tests form the middle, and end-to-end tests form the top. The layers describe technical scope.</desc>
+<rect width="880" height="520" rx="16" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="#172b4d">
+<path d="M440 40 L547 195 L333 195 Z" fill="#ddd6fe" stroke="#ffffff" stroke-width="5"/>
+<path d="M333 195 L547 195 L653 350 L227 350 Z" fill="#bfdbfe" stroke="#ffffff" stroke-width="5"/>
+<path d="M227 350 L653 350 L760 505 L120 505 Z" fill="#a7f3d0" stroke="#ffffff" stroke-width="5"/>
+<text x="440" y="146" font-size="23" font-weight="700">End-to-end</text>
+<text x="440" y="177" font-size="17">Full system flow</text>
+<text x="440" y="263" font-size="27" font-weight="700">Integration</text>
+<text x="440" y="298" font-size="19">Interactions between components</text>
+<text x="440" y="418" font-size="30" font-weight="700">Unit</text>
+<text x="440" y="454" font-size="21">Logic within one component</text>
+</g>
+</svg>
