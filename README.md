@@ -7,8 +7,8 @@
 - **Review cannot find all problems.** AI writes more code than people can
   review line by line. Tests must find the problems that review does not find.
 - **This workflow makes verification faster and stricter.** Agents design tests
-  from each story, implement them in Playwright, and repair them when the app
-  changes. Each test traces back to the requirement text.
+  from each story, implement them in Playwright, and classify failures before
+  fixing test issues. Each test traces back to the requirement text.
 
 ![A Jira story becomes traceable BDD tests in ai-native-test-design, then Playwright scripts in ai-native-ui-automation. A requirement wiki gives business rules to the automation.](assets/workflow-light.svg#gh-light-mode-only)
 ![A Jira story becomes traceable BDD tests in ai-native-test-design, then Playwright scripts in ai-native-ui-automation. A requirement wiki gives business rules to the automation.](assets/workflow-dark.svg#gh-dark-mode-only)
