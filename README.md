@@ -1,4 +1,4 @@
-![A curious AI robot exploring a universe of ideas.](assets/ai-explorer-banner.png)
+![A cyberpunk marble and chrome sculpture with flowing neon light trails.](assets/cyber-sculpture-banner.png)
 
 # Derrick Deng
 
