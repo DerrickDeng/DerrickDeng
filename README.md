@@ -10,10 +10,8 @@
   from each story, implement them in Playwright, and repair them when the app
   changes. Each test traces back to the requirement text.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/workflow-dark.svg">
-  <img alt="A Jira story becomes traceable BDD tests in ai-native-test-design, then Playwright scripts in ai-native-ui-automation. A requirement wiki gives business rules to the automation." src="assets/workflow-light.svg">
-</picture>
+![A Jira story becomes traceable BDD tests in ai-native-test-design, then Playwright scripts in ai-native-ui-automation. A requirement wiki gives business rules to the automation.](assets/workflow-light.svg#gh-light-mode-only)
+![A Jira story becomes traceable BDD tests in ai-native-test-design, then Playwright scripts in ai-native-ui-automation. A requirement wiki gives business rules to the automation.](assets/workflow-dark.svg#gh-dark-mode-only)
 
 ## Key outcomes
 
