@@ -11,15 +11,10 @@ it.
 |---|---|---|
 | Waits | You write explicit waits and wait helpers. | Each action waits until the element is ready. [Assertions retry](https://playwright.dev/docs/test-assertions) until the condition is true. ([auto-waiting](https://playwright.dev/docs/actionability)) |
 | Test runner | You add a runner, such as TestNG, JUnit, or Cucumber, and a report tool. | [Playwright Test](https://playwright.dev/docs/test-parallel) includes fixtures, retries, parallel runs, sharding, and an HTML report. |
-| Test isolation | A new browser for each test is slow, so tests often share one browser. | Each test gets a new [browser context](https://playwright.dev/docs/browser-contexts) in milliseconds. Tests do not share cookies or storage. |
 | Failure evidence | Screenshots and logs, if you add them. | The [Trace Viewer](https://playwright.dev/docs/trace-viewer) shows each action, DOM snapshots, network calls, and console logs. You do not need to run the test again. |
-| Locators | CSS and XPath are common, and they break when the layout changes. | [Role-based locators](https://playwright.dev/docs/locators) find elements as a user sees them, for example by role and name. |
+| Locators | CSS and XPath are common, and they break when the layout changes. | [Role-based locators](https://playwright.dev/docs/locators) find elements as a user sees them, for example by role and name. CSS and XPath are still available as a fallback. |
 | Network and API | You need a proxy or another tool. | One test can [mock network calls](https://playwright.dev/docs/mock) and [call APIs](https://playwright.dev/docs/api-testing) directly. |
-| Browsers | Chrome, Firefox, Edge, and Safari through drivers. | Chromium, Firefox, and WebKit through one API, with no driver setup. |
-
-**Where Selenium still fits.** Selenium is a W3C standard. It supports more
-languages, real branded browsers on a Grid, and mobile tests through Appium.
-For a modern web application, these points do not outweigh the gains above.
+| Browser connection | Each command goes over HTTP to a WebDriver, such as ChromeDriver, and then to the browser. | No WebDriver. Playwright talks to the browser over one open connection, so commands run faster. One API controls Chromium, Firefox, and WebKit. |
 
 ## 2. Built-in support for AI agents
 
