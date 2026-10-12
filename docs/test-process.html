@@ -44,6 +44,12 @@
     h2 { font-size: clamp(18px, 2.5vw, 22px); margin: 0 0 3px; letter-spacing: -.018em; line-height: 1.25; }
     .owner { font-size: 12px; font-weight: 600; color: #657287; margin:0; }
     .two-col { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 13px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 13px; }
+    .ai { display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin:13px 0 0; font-size:12.5px; color:#3d4b5f; }
+    .ai-pill { background:#172337; color:#fff; border-radius:999px; padding:2px 9px; font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+    .ai code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; background:#fff; border:1px solid var(--rule); border-radius:5px; padding:0 5px; }
+    .gate + .gate { margin-top: 12px; }
+    .phase.after { --accent:#64748b; --tint:#fff; --outline:#b9c8d8; border-style: dashed; box-shadow:none; }
     .inner { border-radius: 11px; background: white; padding: 18px 19px; min-width: 0; }
     .inner h3 { font-size: 15px; margin:0 0 12px; }
     .inner p { margin: 8px 0; font-size: 13.5px; line-height:1.48; }
@@ -76,7 +82,7 @@
       .phase { padding: 17px 15px; border-radius: 13px; }
       .heading { gap: 11px; }
       .phase-icon { width: 40px; height:40px; border-radius:10px; }
-      .two-col, .ownership { grid-template-columns:1fr; }
+      .two-col, .three-col, .ownership { grid-template-columns:1fr; }
       .ownership-card:last-child { grid-column:auto; }
       .inner { padding:15px; }
       .flow-arrow {height: 42px;}
@@ -112,7 +118,7 @@
     <header class="masthead">
       <p class="eyebrow">Financial Technology · Quality Engineering</p>
       <h1>Test Process: From Story to Release</h1>
-      <p class="subtitle">Requirement Analysis &amp; Test Design → Sprint Development → Sprint SIT → UAT → UAT Final Regression → Release &amp; Continuous Regression</p>
+      <p class="subtitle">Requirement Analysis &amp; Test Design → Sprint Development → Sprint SIT → UAT → UAT Final Regression → Pre-release Regression → LV</p>
     </header>
     <div class="actions"><button class="print-btn" onclick="window.print()" aria-label="Print or save workflow as PDF">Print / Save as PDF</button></div>
 
@@ -122,9 +128,10 @@
         <div><h2 id="phase-1">Phase 1 — Requirement Analysis &amp; Test Design</h2><p class="owner">Owner: QA | Reviewer: PO team</p></div>
       </div>
       <div class="two-col">
-        <div class="inner"><h3>QA</h3><p>Analyze Requirements &amp; Business Rules</p><p>Write SIT Test Cases</p><p><strong>Tag the Acceptance Tests (AT) for PO Team Review</strong></p><p>Select Automation Candidates &amp; Test Layers</p></div>
+        <div class="inner"><h3>QA</h3><p>Analyze Requirements &amp; Business Rules</p><p>Write SIT Test Cases</p><p><strong>Tag the Acceptance Tests (AT) for PO Team Review</strong></p><p>Select Automation Candidates</p></div>
         <div class="inner"><h3>PO Team</h3><p>Clarify Requirements &amp; Answer Open Questions</p><p>Review Business Coverage</p><p>Approve the Acceptance Tests (AT)</p></div>
       </div>
+      <p class="ai"><span class="ai-pill">AI agent</span><code>functional-test-design</code> drafts the SIT test cases and the AT tags. QA reviews the draft.</p>
       <div class="gate"><span class="seal">✓</span><div><strong>Test Design Exit Gate</strong><span>PO team approved the AT. SIT test cases are ready.</span></div></div>
     </section>
 
@@ -133,13 +140,14 @@
     <section class="phase blue" aria-labelledby="phase-2">
       <div class="heading">
         <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 4l-4 16"/></svg></div>
-        <div><h2 id="phase-2">Phase 2 — Sprint Development</h2><p class="owner">Owner: FE / BE Developers</p></div>
+        <div><h2 id="phase-2">Phase 2 — Sprint Development</h2><p class="owner">Owner: FE / BE Developers / QA</p></div>
       </div>
-      <div class="two-col">
-        <div class="inner"><h3>FE Developer</h3><p>Mocked UI E2E Tests</p><p>Component Integration Tests</p><p>Contract Tests</p></div>
-        <div class="inner"><h3>BE Developer</h3><p>Unit &amp; API Tests</p><p>Service Integration Tests</p><p>Contract Tests</p></div>
+      <div class="three-col">
+        <div class="inner"><h3>FE Developer</h3><p>Integration Tests (Mocked UI E2E, Component)</p><p><strong>Smoke Tests from QA Test Cases</strong> (manual, mocked back end)</p></div>
+        <div class="inner"><h3>BE Developer</h3><p>Unit &amp; Integration Tests</p><p><strong>API Smoke Tests from QA Test Cases</strong></p></div>
+        <div class="inner"><h3>QA</h3><p>Prepare Test Data</p><p>Prepare Automation (Page Objects, Step Definitions)</p></div>
       </div>
-      <div class="gate"><span class="seal">✓</span><div><strong>SIT Entry Gate</strong><span>Developer tests passed; environment and test data ready.</span></div></div>
+      <div class="gate"><span class="seal">✓</span><div><strong>SIT Entry Gate</strong><span>Developer smoke tests passed; environment and test data ready.</span></div></div>
     </section>
 
     <div class="flow-arrow" aria-hidden="true"></div>
@@ -154,6 +162,8 @@
         <div class="item"><span class="check">✓</span><div><span class="item-title">Exploratory Testing</span><span class="item-desc">Additional negative, corner and exception scenarios</span></div></div>
         <div class="item"><span class="check">✓</span><div><span class="item-title">SIT Automation</span><span class="item-desc">Complete Sprint automation and integrate into the SIT Regression Suite</span></div></div>
       </div>
+      <p class="ai"><span class="ai-pill">AI agent</span><code>playwright-bdd-step-implementor</code> turns BDD steps into Playwright scripts against the live app. QA reviews the code.</p>
+      <div class="gate"><span class="seal">↻</span><div><strong>Defect Fix &amp; Verification</strong><span>Developer fixes → QA retests → QA runs impacted SIT regression tests.</span></div></div>
       <div class="gate"><span class="seal">✓</span><div><strong>SIT Exit Gate</strong><span>Functional, integration and SIT regression tests passed; residual risks accepted.</span></div></div>
     </section>
 
@@ -191,27 +201,41 @@
     <section class="phase slate" aria-labelledby="phase-6">
       <div class="heading">
         <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16c-1.5 1-2 3-2 5 2-.2 4-1 5-2.5m6.5-2.5L9 14l1.5-4.5A11 11 0 0 1 21 3a11 11 0 0 1-6.5 10.5L10 15m-2 2 3 3M14 8h.01"/></svg></div>
-        <div><h2 id="phase-6">Phase 6 — Release &amp; Continuous Regression</h2><p class="owner">Owner: Developers / QA / Release Team</p></div>
+        <div><h2 id="phase-6">Phase 6 — Pre-release Regression &amp; Release Readiness</h2><p class="owner">Owner: QA / Developers / Release Team</p></div>
       </div>
       <div class="inner items">
-        <div class="item"><span class="check">✓</span><div>Release Readiness &amp; Production Deployment</div></div>
-        <div class="item"><span class="check">✓</span><div>Reuse SIT &amp; UAT Regression Suites Across Releases</div></div>
-        <div class="item"><span class="check">✓</span><div>Execute Change-based Regression via CI/CD</div></div>
-        <div class="item"><span class="check">✓</span><div>Maintain Automation Coverage &amp; Reliability</div></div>
+        <div class="item"><span class="check">✓</span><div><span class="item-title">Pre-release Regression</span><span class="item-desc">QA reuses the SIT &amp; UAT regression suites, and runs change-based regression via CI/CD</span></div></div>
+        <div class="item"><span class="check">✓</span><div><span class="item-title">Performance Test &amp; Penetration Test</span><span class="item-desc">Developers run them once per release, not in each sprint</span></div></div>
+        <div class="item"><span class="check">✓</span><div><span class="item-title">Release Readiness Check</span><span class="item-desc">Release team checks the deployment plan, the rollback plan, and the open defects</span></div></div>
+        <div class="item"><span class="check">✓</span><div><span class="item-title">Automation Maintenance</span><span class="item-desc">QA keeps the automation coverage complete and the tests reliable</span></div></div>
       </div>
+      <p class="ai"><span class="ai-pill">AI agent</span><code>playwright-bdd-test-healer</code> repairs tests that fail after an app change. QA reviews each fix.</p>
+      <div class="gate"><span class="seal">✓</span><div><strong>Go-live Gate</strong><span>Regression, performance test, and penetration test passed; release approved.</span></div></div>
+    </section>
+
+    <div class="flow-arrow" aria-hidden="true"></div>
+
+    <section class="phase after" aria-labelledby="phase-lv">
+      <div class="heading">
+        <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div>
+        <div><h2 id="phase-lv">After Release — LV (Live Verification)</h2><p class="owner">Owner: Business Team · Outside the QA scope</p></div>
+      </div>
+      <div class="inner"><p>The business team verifies the release in production.</p></div>
     </section>
 
     <section aria-labelledby="ownership-heading">
       <h2 id="ownership-heading" class="section-title">Ownership Summary</h2>
       <div class="ownership">
         <div class="ownership-card" style="--accent:#0891b2"><h3>QA (Test Design)</h3><p>SIT Test Cases, AT Tagging &amp; Automation Candidates</p></div>
-        <div class="ownership-card" style="--accent:#2563eb"><h3>Developers</h3><p>Component, API &amp; Service Integration Quality</p></div>
+        <div class="ownership-card" style="--accent:#2563eb"><h3>Developers</h3><p>Unit &amp; Integration Tests, Smoke Tests, Performance &amp; Penetration Tests</p></div>
         <div class="ownership-card" style="--accent:#059669"><h3>QA (SIT)</h3><p>System Validation &amp; SIT Automation</p></div>
         <div class="ownership-card" style="--accent:#b96b04"><h3>PO Team</h3><p>Requirement Clarification, AT Approval &amp; Business Acceptance</p></div>
-        <div class="ownership-card" style="--accent:#7c3aed"><h3>QA (Regression)</h3><p>User Journey Automation &amp; Continuous Regression</p></div>
+        <div class="ownership-card" style="--accent:#7c3aed"><h3>QA (Regression)</h3><p>User Journey Automation &amp; Pre-release Regression</p></div>
+        <div class="ownership-card" style="--accent:#475569"><h3>Release Team</h3><p>Release Readiness &amp; Deployment</p></div>
+        <div class="ownership-card" style="--accent:#64748b"><h3>Business Team</h3><p>LV in Production</p></div>
       </div>
     </section>
-    <p class="note"><strong>Note:</strong> The acceptance tests (AT) are a tagged subset of the SIT test cases, not a separate document. QA tags them, the PO team approves them, and the PO team runs them in UAT. SIT and UAT have separate regression gates. Defect retesting and change-based regression take place throughout the delivery lifecycle. SIT can progress on a sprint cadence while UAT follows the release cadence, provided builds and environments are controlled.</p>
+    <p class="note"><strong>Note:</strong> The acceptance tests (AT) are a tagged subset of the SIT test cases, not a separate document. QA tags them, the PO team approves them, and the PO team runs them in UAT. SIT and UAT have separate regression gates. Performance and penetration tests run once per release, not in each sprint. AI agents draft the work; a person reviews each output before it is used. Defect retesting and change-based regression take place throughout the delivery lifecycle. SIT can progress on a sprint cadence while UAT follows the release cadence, provided builds and environments are controlled.</p>
     <footer>Test Process: From Story to Release · Standalone, printable HTML</footer>
   </main>
 </body>
