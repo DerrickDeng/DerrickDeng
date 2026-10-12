@@ -45,9 +45,6 @@
     .owner { font-size: 12px; font-weight: 600; color: #657287; margin:0; }
     .two-col { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 13px; }
     .three-col { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 13px; }
-    .ai { display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin:13px 0 0; font-size:12.5px; color:#3d4b5f; }
-    .ai-pill { background:#172337; color:#fff; border-radius:999px; padding:2px 9px; font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
-    .ai code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; background:#fff; border:1px solid var(--rule); border-radius:5px; padding:0 5px; }
     .gate + .gate { margin-top: 12px; }
     .phase.after { --accent:#64748b; --tint:#fff; --outline:#b9c8d8; border-style: dashed; box-shadow:none; }
     .inner { border-radius: 11px; background: white; padding: 18px 19px; min-width: 0; }
@@ -131,7 +128,6 @@
         <div class="inner"><h3>QA</h3><p>Analyze Requirements &amp; Business Rules</p><p>Write SIT Test Cases</p><p><strong>Tag the Acceptance Tests (AT) for PO Team Review</strong></p><p>Select Automation Candidates</p></div>
         <div class="inner"><h3>PO Team</h3><p>Clarify Requirements &amp; Answer Open Questions</p><p>Review Business Coverage</p><p>Approve the Acceptance Tests (AT)</p></div>
       </div>
-      <p class="ai"><span class="ai-pill">AI agent</span><code>functional-test-design</code> drafts the SIT test cases and the AT tags. QA reviews the draft.</p>
       <div class="gate"><span class="seal">✓</span><div><strong>Test Design Exit Gate</strong><span>PO team approved the AT. SIT test cases are ready.</span></div></div>
     </section>
 
@@ -162,7 +158,6 @@
         <div class="item"><span class="check">✓</span><div><span class="item-title">Exploratory Testing</span><span class="item-desc">Additional negative, corner and exception scenarios</span></div></div>
         <div class="item"><span class="check">✓</span><div><span class="item-title">SIT Automation</span><span class="item-desc">Complete Sprint automation and integrate into the SIT Regression Suite</span></div></div>
       </div>
-      <p class="ai"><span class="ai-pill">AI agent</span><code>playwright-bdd-step-implementor</code> turns BDD steps into Playwright scripts against the live app. QA reviews the code.</p>
       <div class="gate"><span class="seal">↻</span><div><strong>Defect Fix &amp; Verification</strong><span>Developer fixes → QA retests → QA runs impacted SIT regression tests.</span></div></div>
       <div class="gate"><span class="seal">✓</span><div><strong>SIT Exit Gate</strong><span>Functional, integration and SIT regression tests passed; residual risks accepted.</span></div></div>
     </section>
@@ -209,7 +204,6 @@
         <div class="item"><span class="check">✓</span><div><span class="item-title">Release Readiness Check</span><span class="item-desc">Release team checks the deployment plan, the rollback plan, and the open defects</span></div></div>
         <div class="item"><span class="check">✓</span><div><span class="item-title">Automation Maintenance</span><span class="item-desc">QA keeps the automation coverage complete and the tests reliable</span></div></div>
       </div>
-      <p class="ai"><span class="ai-pill">AI agent</span><code>playwright-bdd-test-healer</code> repairs tests that fail after an app change. QA reviews each fix.</p>
       <div class="gate"><span class="seal">✓</span><div><strong>Go-live Gate</strong><span>Regression, performance test, and penetration test passed; release approved.</span></div></div>
     </section>
 
@@ -235,7 +229,7 @@
         <div class="ownership-card" style="--accent:#64748b"><h3>Business Team</h3><p>LV in Production</p></div>
       </div>
     </section>
-    <p class="note"><strong>Note:</strong> The acceptance tests (AT) are a tagged subset of the SIT test cases, not a separate document. QA tags them, the PO team approves them, and the PO team runs them in UAT. SIT and UAT have separate regression gates. Performance and penetration tests run once per release, not in each sprint. AI agents draft the work; a person reviews each output before it is used. Defect retesting and change-based regression take place throughout the delivery lifecycle. SIT can progress on a sprint cadence while UAT follows the release cadence, provided builds and environments are controlled.</p>
+    <p class="note"><strong>Note:</strong> The acceptance tests (AT) are a tagged subset of the SIT test cases, not a separate document. QA tags them, the PO team approves them, and the PO team runs them in UAT. SIT and UAT have separate regression gates. Performance and penetration tests run once per release, not in each sprint. Defect retesting and change-based regression take place throughout the delivery lifecycle. SIT can progress on a sprint cadence while UAT follows the release cadence, provided builds and environments are controlled.</p>
     <footer>Test Process: From Story to Release · Standalone, printable HTML</footer>
   </main>
 </body>
