@@ -8,8 +8,5 @@ QA workflows, test process, and automation strategy.
 - [**Test Process for a financial technology company**](docs/test-process.md)  
   From requirement review and sprint testing to release regression.
 
-- [**Automation Layering Strategy**](docs/automation-layering-strategy.md)  
-  Choose unit, integration, and end-to-end tests based on implementation architecture.
-
 - [**Playwright Adoption Proposal**](docs/playwright-adoption-proposal.md)  
   Why adopt Playwright and how to move an existing Selenium suite in stages.
