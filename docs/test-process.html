@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
-  <title>Updated QA Delivery Workflow | Banking Quality Engineering</title>
+  <title>Test Process: From Story to Release</title>
   <style>
     :root {
       --ink: #172337;
@@ -110,22 +110,22 @@
 <body>
   <main class="wrap">
     <header class="masthead">
-      <p class="eyebrow">Banking · Quality Engineering</p>
-      <h1>Updated QA Delivery Workflow</h1>
-      <p class="subtitle">Test Design &amp; Review → Sprint Development → Sprint SIT → UAT → UAT Final Regression → Release &amp; Continuous Regression</p>
+      <p class="eyebrow">Financial Technology · Quality Engineering</p>
+      <h1>Test Process: From Story to Release</h1>
+      <p class="subtitle">Requirement Analysis &amp; Test Design → Sprint Development → Sprint SIT → UAT → UAT Final Regression → Release &amp; Continuous Regression</p>
     </header>
     <div class="actions"><button class="print-btn" onclick="window.print()" aria-label="Print or save workflow as PDF">Print / Save as PDF</button></div>
 
     <section class="phase cyan" aria-labelledby="phase-1">
       <div class="heading">
         <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4.5h6M9 9h6M9 13h6M9 17h4"/></svg></div>
-        <div><h2 id="phase-1">Phase 1 — Test Design &amp; Review</h2><p class="owner">Owner: AQA | Reviewer: PO</p></div>
+        <div><h2 id="phase-1">Phase 1 — Requirement Analysis &amp; Test Design</h2><p class="owner">Owner: QA | Reviewer: PO team</p></div>
       </div>
       <div class="two-col">
-        <div class="inner"><h3>AQA</h3><p>Analyze Requirements &amp; Business Rules</p><p><strong>Define Acceptance Tests (AT)</strong></p><p>Design SIT Test Cases</p><p>Identify Automation Candidates</p></div>
-        <div class="inner"><h3>Product Owner</h3><p>Review AT &amp; SIT Test Cases</p><p>Validate Business Coverage</p><p>Clarify Requirements</p><p>Approve Acceptance Tests</p></div>
+        <div class="inner"><h3>QA</h3><p>Analyze Requirements &amp; Business Rules</p><p>Write SIT Test Cases</p><p><strong>Tag the Acceptance Tests (AT) for PO Team Review</strong></p><p>Select Automation Candidates &amp; Test Layers</p></div>
+        <div class="inner"><h3>PO Team</h3><p>Clarify Requirements &amp; Answer Open Questions</p><p>Review Business Coverage</p><p>Approve the Acceptance Tests (AT)</p></div>
       </div>
-      <div class="gate"><span class="seal">✓</span><div><strong>Test Design Exit Gate</strong><span>AT and SIT Test Cases reviewed and approved by PO.</span></div></div>
+      <div class="gate"><span class="seal">✓</span><div><strong>Test Design Exit Gate</strong><span>PO team approved the AT. SIT test cases are ready.</span></div></div>
     </section>
 
     <div class="flow-arrow" aria-hidden="true"></div>
@@ -147,7 +147,7 @@
     <section class="phase green" aria-labelledby="phase-3">
       <div class="heading">
         <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 8.4 8 11 4.5-2.6 8-6 8-11V5l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div>
-        <div><h2 id="phase-3">Phase 3 — Sprint SIT</h2><p class="owner">Owner: AQA / SIT QA</p></div>
+        <div><h2 id="phase-3">Phase 3 — Sprint SIT</h2><p class="owner">Owner: QA</p></div>
       </div>
       <div class="inner items">
         <div class="item"><span class="check">✓</span><div><span class="item-title">Rapid Functional Validation</span><span class="item-desc">Execute SIT cases, validate core features and real cross-system integration</span></div></div>
@@ -162,13 +162,13 @@
     <section class="phase amber" aria-labelledby="phase-4">
       <div class="heading">
         <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20v-2a6 6 0 0 1 12 0v2m1-7a5 5 0 0 1 7 4.5V20h-5"/></svg></div>
-        <div><h2 id="phase-4">Phase 4 — UAT</h2><p class="owner">Owner: UAT QA / PO / AQA</p></div>
+        <div><h2 id="phase-4">Phase 4 — UAT</h2><p class="owner">Owner: PO Team / QA</p></div>
       </div>
       <div class="two-col">
-        <div class="inner"><h3>UAT QA / PO</h3><p>Execute Business Acceptance Tests</p><p>Defect Verification &amp; Retesting</p><p>Business Test Evidence</p></div>
-        <div class="inner"><h3>AQA</h3><p><strong>Consolidate PO-defined User Journeys into the UAT Regression Suite</strong></p><p>Reuse &amp; Compose Automation Scripts</p><p>Debug &amp; Validate in UAT</p></div>
+        <div class="inner"><h3>PO Team</h3><p>Execute Business Acceptance Tests</p><p>Defect Verification &amp; Retesting</p><p>Business Test Evidence</p></div>
+        <div class="inner"><h3>QA</h3><p><strong>Consolidate PO Team-defined User Journeys into the UAT Regression Suite</strong></p><p>Reuse &amp; Compose Automation Scripts</p><p>Debug &amp; Validate in UAT</p></div>
       </div>
-      <div class="gate"><span class="seal">↻</span><div><strong>Defect Fix &amp; Verification</strong><span>Developer fixes → UAT QA retests → AQA runs impacted regression tests.</span></div></div>
+      <div class="gate"><span class="seal">↻</span><div><strong>Defect Fix &amp; Verification</strong><span>Developer fixes → PO team retests → QA runs impacted regression tests.</span></div></div>
     </section>
 
     <div class="flow-arrow" aria-hidden="true"></div>
@@ -176,14 +176,14 @@
     <section class="phase violet" aria-labelledby="phase-5">
       <div class="heading">
         <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6h7v8M6 10v7h8M17 6l-2-2m2 2-2 2"/></svg></div>
-        <div><h2 id="phase-5">Phase 5 — UAT Final Regression</h2><p class="owner">Owner: AQA / Business</p></div>
+        <div><h2 id="phase-5">Phase 5 — UAT Final Regression</h2><p class="owner">Owner: QA / PO Team</p></div>
       </div>
       <div class="inner items">
         <div class="item"><span class="check">✓</span><div>Execute Automated User Journey Regression Suite</div></div>
         <div class="item"><span class="check">✓</span><div>Verify Defect Resolutions &amp; Regression Results</div></div>
         <div class="item"><span class="check">✓</span><div>Generate Regression Reports &amp; Test Evidence</div></div>
       </div>
-      <div class="gate"><span class="seal">✓</span><div><strong>UAT Exit Gate</strong><span>Regression passed, critical defects resolved or accepted, Business Sign-off obtained.</span></div></div>
+      <div class="gate"><span class="seal">✓</span><div><strong>UAT Exit Gate</strong><span>Regression passed, critical defects resolved or accepted, PO team sign-off obtained.</span></div></div>
     </section>
 
     <div class="flow-arrow" aria-hidden="true"></div>
@@ -191,7 +191,7 @@
     <section class="phase slate" aria-labelledby="phase-6">
       <div class="heading">
         <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16c-1.5 1-2 3-2 5 2-.2 4-1 5-2.5m6.5-2.5L9 14l1.5-4.5A11 11 0 0 1 21 3a11 11 0 0 1-6.5 10.5L10 15m-2 2 3 3M14 8h.01"/></svg></div>
-        <div><h2 id="phase-6">Phase 6 — Release &amp; Continuous Regression</h2><p class="owner">Owner: Developers / AQA / Release Team</p></div>
+        <div><h2 id="phase-6">Phase 6 — Release &amp; Continuous Regression</h2><p class="owner">Owner: Developers / QA / Release Team</p></div>
       </div>
       <div class="inner items">
         <div class="item"><span class="check">✓</span><div>Release Readiness &amp; Production Deployment</div></div>
@@ -204,15 +204,15 @@
     <section aria-labelledby="ownership-heading">
       <h2 id="ownership-heading" class="section-title">Ownership Summary</h2>
       <div class="ownership">
-        <div class="ownership-card" style="--accent:#0891b2"><h3>AQA / PO</h3><p>Test Design &amp; Business Coverage Review</p></div>
+        <div class="ownership-card" style="--accent:#0891b2"><h3>QA (Test Design)</h3><p>SIT Test Cases, AT Tagging &amp; Automation Candidates</p></div>
         <div class="ownership-card" style="--accent:#2563eb"><h3>Developers</h3><p>Component, API &amp; Service Integration Quality</p></div>
-        <div class="ownership-card" style="--accent:#059669"><h3>SIT AQA</h3><p>System Validation &amp; SIT Automation</p></div>
-        <div class="ownership-card" style="--accent:#b96b04"><h3>UAT QA / PO</h3><p>Business Validation &amp; Acceptance</p></div>
-        <div class="ownership-card" style="--accent:#7c3aed"><h3>AQA Regression</h3><p>User Journey Automation &amp; Continuous Regression</p></div>
+        <div class="ownership-card" style="--accent:#059669"><h3>QA (SIT)</h3><p>System Validation &amp; SIT Automation</p></div>
+        <div class="ownership-card" style="--accent:#b96b04"><h3>PO Team</h3><p>Requirement Clarification, AT Approval &amp; Business Acceptance</p></div>
+        <div class="ownership-card" style="--accent:#7c3aed"><h3>QA (Regression)</h3><p>User Journey Automation &amp; Continuous Regression</p></div>
       </div>
     </section>
-    <p class="note"><strong>Note:</strong> AQA defines Acceptance Tests (AT), PO reviews and approves them, and UAT QA performs business acceptance. SIT and UAT have separate regression gates. Defect retesting and change-based regression take place throughout the delivery lifecycle. SIT can progress on a sprint cadence while UAT follows the release cadence, provided builds and environments are controlled.</p>
-    <footer>Banking QA Delivery Workflow · Standalone, printable HTML</footer>
+    <p class="note"><strong>Note:</strong> The acceptance tests (AT) are a tagged subset of the SIT test cases, not a separate document. QA tags them, the PO team approves them, and the PO team runs them in UAT. SIT and UAT have separate regression gates. Defect retesting and change-based regression take place throughout the delivery lifecycle. SIT can progress on a sprint cadence while UAT follows the release cadence, provided builds and environments are controlled.</p>
+    <footer>Test Process: From Story to Release · Standalone, printable HTML</footer>
   </main>
 </body>
 </html>
