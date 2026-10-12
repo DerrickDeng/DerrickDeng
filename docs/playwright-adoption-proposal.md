@@ -1,27 +1,57 @@
-# Playwright Adoption Proposal
+# Why Move from Selenium to Playwright
 
-A proposal for evaluating Playwright and moving an existing Selenium suite in stages.
+Playwright makes UI tests more stable and failures easier to diagnose. It also
+gives AI agents first-party tools to read pages, write tests, and debug
+failures. For a team that uses Selenium, these two reasons make the move worth
+it.
 
-## Why consider Playwright
+## 1. Playwright compared with Selenium
 
-**Less manual waiting logic.** Playwright checks whether an element is ready before an action. Its assertions retry until the expected condition is met or the timeout expires. This can reduce custom waiting code. It does not remove the need to wait for business events or data changes. See [auto-waiting](https://playwright.dev/docs/actionability).
+| Area | Selenium | Playwright |
+|---|---|---|
+| Waits | You write explicit waits and wait helpers. | Each action waits until the element is ready. [Assertions retry](https://playwright.dev/docs/test-assertions) until the condition is true. ([auto-waiting](https://playwright.dev/docs/actionability)) |
+| Test runner | You add a runner, such as TestNG, JUnit, or Cucumber, and a report tool. | [Playwright Test](https://playwright.dev/docs/test-parallel) includes fixtures, retries, parallel runs, sharding, and an HTML report. |
+| Test isolation | A new browser for each test is slow, so tests often share one browser. | Each test gets a new [browser context](https://playwright.dev/docs/browser-contexts) in milliseconds. Tests do not share cookies or storage. |
+| Failure evidence | Screenshots and logs, if you add them. | The [Trace Viewer](https://playwright.dev/docs/trace-viewer) shows each action, DOM snapshots, network calls, and console logs. You do not need to run the test again. |
+| Locators | CSS and XPath are common, and they break when the layout changes. | [Role-based locators](https://playwright.dev/docs/locators) find elements as a user sees them, for example by role and name. |
+| Network and API | You need a proxy or another tool. | One test can [mock network calls](https://playwright.dev/docs/mock) and [call APIs](https://playwright.dev/docs/api-testing) directly. |
+| Browsers | Chrome, Firefox, Edge, and Safari through drivers. | Chromium, Firefox, and WebKit through one API, with no driver setup. |
 
-**Better evidence for failed tests.** Trace Viewer brings action history, page snapshots, logs, and network information together. This can help engineers understand a failure without rerunning it locally. See [Trace Viewer](https://playwright.dev/docs/trace-viewer).
+**Where Selenium still fits.** Selenium is a W3C standard. It supports more
+languages, real branded browsers on a Grid, and mobile tests through Appium.
+For a modern web application, these points do not outweigh the gains above.
 
-**A clearer starting point for new UI tests.** These built-in tools are a reason to pilot Playwright for a modern web application. The expected gains in reliability and maintenance still need to be measured on the company's own tests.
+## 2. Built-in support for AI agents
 
-## Compare against the current Selenium suite
+AI agents work with text. Playwright gives an agent text views of the page and
+of each failure, so the agent works from evidence and does not guess.
 
-Selenium supports explicit waits. The comparison should consider the team's existing wait helpers, reports, and debugging tools. See [Selenium waiting strategies](https://www.selenium.dev/documentation/webdriver/waits/).
+| Tool | What it gives the agent |
+|---|---|
+| [Playwright MCP](https://github.com/microsoft/playwright-mcp) | An agent controls a browser through MCP. It reads the page as an accessibility snapshot, not as a screenshot. |
+| [Playwright CLI](https://github.com/microsoft/playwright-cli) | The same browser control as shell commands, for coding agents. It uses fewer tokens than MCP, and it can generate a locator for an element on the live page. |
+| Trace CLI (`npx playwright trace`) | An agent reads a failed run's trace as text: the actions, network calls, console, errors, and DOM snapshots. |
+| [ARIA snapshots](https://playwright.dev/docs/aria-snapshots) | A text tree of the page. A failed test saves one, so the agent sees the page at the moment of failure. |
+| [Test Agents](https://playwright.dev/docs/test-agents) | Planner, generator, and healer agent templates. `npx playwright init-agents` adds them to a project. |
 
-Check required browsers, existing language choices, CI infrastructure, and the value of the current test suite before choosing a migration scope.
+Selenium does not include these tools. A team must build them or use
+third-party tools.
 
-## Start with a pilot
+## 3. Evidence from my workflow
 
-1. Choose representative user journeys, including a test that is difficult to maintain.
-2. Implement the same checks in Playwright. Keep test data and environments comparable.
-3. Compare unstable failures, runtime, debugging time, and effort to update tests after an app change.
-4. Move new tests and selected existing tests if the pilot shows a clear benefit.
-5. Retire each Selenium test only after its replacement covers the required behavior.
+[ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-automation)
+uses these tools in two agent skills:
+
+- **Step implementor:** the test runner stops at a missing step. The agent
+  reads the live page with Playwright CLI, and each locator comes from CLI
+  output.
+- **Test healer:** the agent reads the failure report and the ARIA snapshot
+  first, then the trace with the trace CLI. It opens a live browser only when
+  the trace is not enough.
+
+The results are in the
+[Agentic QA Workflow](agentic-qa-workflow.md#key-outcomes): a BDD scenario of
+about 15 steps takes about 30 minutes instead of a day, and a test repair takes
+about 30 minutes instead of half a day.
 
 [Back to home](../README.md)

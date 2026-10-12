@@ -6,5 +6,5 @@
 - [**Test Process for a financial technology company**](docs/test-process.md)  
   From requirement review and sprint testing to release regression.
 
-- [**Playwright Adoption Proposal**](docs/playwright-adoption-proposal.md)  
-  Why adopt Playwright and how to move an existing Selenium suite in stages.
+- [**Why Move from Selenium to Playwright**](docs/playwright-adoption-proposal.md)  
+  More stable tests, better failure evidence, and built-in tools for AI agents.
