@@ -24,7 +24,7 @@ of each failure, so the agent works from evidence and does not guess.
 | Tool | What it gives the agent |
 |---|---|
 | [Playwright MCP](https://github.com/microsoft/playwright-mcp) | An agent controls a browser through MCP. It reads the page as an accessibility snapshot, not as a screenshot. |
-| [Playwright CLI](https://github.com/microsoft/playwright-cli) | The same browser control as shell commands, for coding agents. It uses fewer tokens than MCP, and it can generate a locator for an element on the live page. |
+| [Playwright CLI](https://github.com/microsoft/playwright-cli) | The same browser control as shell commands, for coding agents. It uses fewer tokens than MCP. |
 | Trace CLI (`npx playwright trace`) | An agent reads a failed run's trace as text: the actions, network calls, console, errors, and DOM snapshots. |
 | [ARIA snapshots](https://playwright.dev/docs/aria-snapshots) | A text tree of the page. A failed test saves one, so the agent sees the page at the moment of failure. |
 | [Test Agents](https://playwright.dev/docs/test-agents) | Planner, generator, and healer agent templates. `npx playwright init-agents` adds them to a project. |
