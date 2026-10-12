@@ -1,7 +1,5 @@
 # Derrick Deng
 
-QA workflows, test process, and automation strategy.
-
 - [**Agentic QA Workflow**](docs/agentic-qa-workflow.md)  
   Agents for requirement analysis, test design, UI automation, and test repair.
 
