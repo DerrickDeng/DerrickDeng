@@ -44,7 +44,7 @@ Project: [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-a
 
 | Skill / Tool | What it does |
 |---|---|
-| [playwright bdd step implementor](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | **Turns a BDD feature into Playwright scripts.** Runs the scenario in debug mode and stops at each missing step, so the agent sees the real page and test state. Takes each locator from Playwright CLI output, not from a guess. Writes step definitions and Page Objects, and never changes the feature text. Runs the scenario again to confirm that it passes. |
+| [playwright bdd step implementor](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | **Turns a BDD feature into Playwright scripts.** Runs the scenario in debug mode and stops at each missing step, so the agent sees the real page and test state. Takes each locator from Playwright CLI output, not from a guess. Writes step definitions and Page Objects. Runs the scenario again to confirm that it passes. |
 | [playwright bdd test healer](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-test-healer) | Diagnoses previously passing BDD tests from failure reports and traces. Uses live debugging when needed, repairs test code, and reruns affected scenarios. |
 | [requirement context retrieval](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/requirement-context-retrieval) | Searches the requirement Wiki through OpenViking, reads cited Stories or notes, and checks source freshness to answer a specific business question. |
 
