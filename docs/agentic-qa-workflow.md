@@ -69,13 +69,25 @@ complete. Both projects control the output before, during, and after each run.
 checks. A grader reviews each run against the checks. The tasks run again after
 a major skill change to find regressions.
 
-**A self-built app under test.** The evals run against
-[QA Dashboard](https://github.com/DerrickDeng/qa-dashboard), an app built for
-this workflow. Its source is outside the agent's repository, so the agent cannot
-read the answers. It is a live app, so the evals see real behavior: the first
-eval run found a real filter race in the dashboard. The dashboard also measures
-the value of agents in daily use: adoption, edits before adoption, and accuracy
-against reviewed tests.
+> [!IMPORTANT]
+> **We built an application only for skill evaluation.**
+> [QA Dashboard](https://github.com/DerrickDeng/qa-dashboard) is the app under
+> test for all evals. We change its features to fit each test scenario.
+>
+> - **Any scenario on demand.** A new release breaks a locator, so the healer
+>   has a real failure to repair. A tile is left out on purpose, so the agent
+>   must report missing content and not invent a check.
+> - **Stable and repeatable.** The app runs locally with generated data. Each
+>   eval starts from the same state, so a change in the result comes from the
+>   skill, not from the environment.
+> - **Faster regression.** After a skill change, all golden tasks run again on
+>   the same app in minutes. No shared test environment is needed.
+> - **Honest results.** The app source is outside the agent's repository, so
+>   the agent cannot read the answers. The app is live, so the evals see real
+>   behavior: the first eval run found a real filter race in the dashboard.
+>
+> The dashboard also measures the value of agents in daily use: adoption,
+> edits before adoption, and accuracy against reviewed tests.
 
 **With and without the skill.** Both configurations work in the same
 repository, with the same rules files and lint. The difference shows what the
