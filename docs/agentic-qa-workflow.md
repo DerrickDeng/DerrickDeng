@@ -58,17 +58,18 @@ Each control catches what the control before it misses.
 |---|---|---|
 | **Global context** | The agent reads `CLAUDE.md` or `AGENTS.md` at the start of each session. It gives the project map, the commands, and the non-negotiable rules, and points to the detailed rules. One source serves Claude Code, Codex, and Gemini CLI. | `CodeRules.md` has 102 numbered rules. Reviews cite rule IDs, such as `P-2`. |
 | **Skill structure** | Each skill uses the same sections: an evidence contract, non-negotiables, gotchas, stop conditions, and an output contract. `SKILL.md` stays short, and the agent reads a reference file only when a step needs it. | Each gotcha is a mistake from a real run, and the fix for it. |
+| **Context management** | Each agent gets the context that it needs, when it needs it. A skill calls the requirement retrieval skill when a step raises a business question. The agent checks each Wiki answer against the original Story and its freshness. The reviewer gets only the requirement and the output, on purpose. | The step implementor looks up a business rule in the requirement Wiki before it writes a check. |
 | **Evidence for each output** | The evidence contract names the source for each question. When the evidence is missing, the agent records a question and does not guess. | Each test traces to a quote from the requirement. Each locator comes from Playwright CLI output. |
 | **Structured output contract** | The output has fixed fields, and each field has a rule. A script checks each field, so a missing or wrong field fails the check. | In the coverage trace, each requirement claim has a status, and each `Then` links to its claim. |
 | **Machine checks** | ESLint and TypeScript check the code. Custom scripts check the rules that a general lint tool cannot check. Runtime guards stop a wrong run. | `jira-sync lint` checks each feature and its coverage trace. Other scripts check the regression suite mapping and that each Wiki citation still matches its source. |
 | **Independent review** | A second agent reviews the output in a fresh context. It reads only the requirement and the output, not the author's reasoning, so it does not share the author's blind spots. | The reviewer lists the requirement claims again and finds the ones that no test covers. |
-| **Skill evaluation** | Golden tasks with written checks measure each skill. A run with the skill and a run without it show what the skill adds. The tasks run again after each skill change, to show that it improves and does not regress. | See [Skill Evaluation](#4-skill-evaluation). |
+| **Skill evaluation** | Golden tasks with written checks measure each skill. A run with the skill and a run without it show what the skill adds. The tasks run again after a major skill change, to show that it improves and does not regress. | See [Skill Evaluation](#4-skill-evaluation). |
 
 ### 4. Skill Evaluation
 
 **Skills are tested like code.** Each skill has golden tasks with written
 checks. A grader reviews each run against the checks. The tasks run again after
-each skill change to find regressions.
+a major skill change to find regressions.
 
 **A self-built app under test.** The evals run against
 [QA Dashboard](https://github.com/DerrickDeng/qa-dashboard), an app built for
