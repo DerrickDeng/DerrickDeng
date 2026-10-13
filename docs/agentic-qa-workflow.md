@@ -52,7 +52,6 @@ Project: [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-a
 
 An agent writes fast, but it can guess, skip a rule, or stop before the work is
 complete. Both projects control the output before, during, and after each run.
-Each control catches what the control before it misses.
 
 | Control | How it works | Example |
 |---|---|---|
