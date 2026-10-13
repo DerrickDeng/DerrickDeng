@@ -81,7 +81,7 @@ a major skill change to find regressions.
 >   eval starts from the same state, so a change in the result comes from the
 >   skill, not from the environment.
 > - **Faster regression.** After a skill change, all golden tasks run again on
->   the same app in minutes. No shared test environment is needed.
+>   the same app. No shared test environment is needed.
 > - **Honest results.** The app source is outside the agent's repository, so
 >   the agent cannot read the answers. The app is live, so the evals see real
 >   behavior: the first eval run found a real filter race in the dashboard.
