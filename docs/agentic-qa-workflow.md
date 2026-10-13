@@ -44,17 +44,25 @@ Project: [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-a
 
 | Skill / Tool | What it does |
 |---|---|
-| [playwright bdd step implementor](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | Implements missing steps in an authored BDD scenario using Playwright CLI browser evidence. Adds step definitions and Page Objects, then runs the scenario. |
+| [playwright bdd step implementor](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-step-implementor) | **Turns a BDD feature into Playwright scripts.** Runs the scenario in debug mode and stops at each missing step, so the agent sees the real page and test state. Takes each locator from Playwright CLI output, not from a guess. Writes step definitions and Page Objects, and never changes the feature text. Runs the scenario again to confirm that it passes. |
 | [playwright bdd test healer](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/playwright-bdd-test-healer) | Diagnoses previously passing BDD tests from failure reports and traces. Uses live debugging when needed, repairs test code, and reruns affected scenarios. |
 | [requirement context retrieval](https://github.com/DerrickDeng/ai-native-ui-automation/tree/main/.claude/skills/requirement-context-retrieval) | Searches the requirement Wiki through OpenViking, reads cited Stories or notes, and checks source freshness to answer a specific business question. |
 
-**Rules that shape the agent's output.** `CLAUDE.md` is a short map that the
-agent reads first. It points to `CodeRules.md`, which has 92 numbered rules.
-ESLint and TypeScript enforce the rules that a machine can check, and 3 rules
-fail at runtime so that no one can skip them. Contract tests check that each
-skill still states the key rules.
+### 3. Agent Output Control
 
-### 3. Skill Evaluation
+An agent writes fast, but it can guess, skip a rule, or change the wrong file.
+Both projects control the output in five layers. Each layer catches what the
+layer before it misses.
+
+| Layer | How it works | Example |
+|---|---|---|
+| **Rules the agent reads** | A short map file that the agent reads first, such as `CLAUDE.md` or `AGENTS.md`. It points to the detailed rules. One rule source serves Claude Code, Codex, and Gemini CLI. | `CodeRules.md` has 102 numbered rules. Reviews cite rule IDs, such as `P-2`. |
+| **Evidence for each output** | The agent must show where each output comes from. When the evidence is missing, the agent records a question and does not guess. | Each test traces to a line of requirement text. Each locator comes from Playwright CLI output. |
+| **Inputs the agent cannot change** | The agent cannot edit the source that defines the expected behavior. | The `.feature` text and the generated test code are frozen. |
+| **Machine checks** | Lint, type checks, and runtime guards block the rules that a machine can check. | A run fails when no project is selected, a tag is wrong, or a TODO step is left. |
+| **Review and regression tests** | An independent review checks the output against the source. Contract tests and evals check that each skill still works after a change. | See [Skill Evaluation](#4-skill-evaluation). |
+
+### 4. Skill Evaluation
 
 **Skills are tested like code.** Each skill has golden tasks with written
 checks. A grader reviews each run against the checks. The tasks run again after
