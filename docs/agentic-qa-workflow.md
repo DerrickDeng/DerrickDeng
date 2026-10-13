@@ -50,17 +50,19 @@ Project: [ai-native-ui-automation](https://github.com/DerrickDeng/ai-native-ui-a
 
 ### 3. Agent Output Control
 
-An agent writes fast, but it can guess, skip a rule, or change the wrong file.
-Both projects control the output in five layers. Each layer catches what the
-layer before it misses.
+An agent writes fast, but it can guess, skip a rule, or stop before the work is
+complete. Both projects control the output before, during, and after each run.
+Each control catches what the control before it misses.
 
-| Layer | How it works | Example |
+| Control | How it works | Example |
 |---|---|---|
-| **Rules the agent reads** | A short map file that the agent reads first, such as `CLAUDE.md` or `AGENTS.md`. It points to the detailed rules. One rule source serves Claude Code, Codex, and Gemini CLI. | `CodeRules.md` has 102 numbered rules. Reviews cite rule IDs, such as `P-2`. |
-| **Evidence for each output** | The agent must show where each output comes from. When the evidence is missing, the agent records a question and does not guess. | Each test traces to a line of requirement text. Each locator comes from Playwright CLI output. |
-| **Inputs the agent cannot change** | The agent cannot edit the source that defines the expected behavior. | The `.feature` text and the generated test code are frozen. |
-| **Machine checks** | Lint, type checks, and runtime guards block the rules that a machine can check. | A run fails when no project is selected, a tag is wrong, or a TODO step is left. |
-| **Review and regression tests** | An independent review checks the output against the source. Contract tests and evals check that each skill still works after a change. | See [Skill Evaluation](#4-skill-evaluation). |
+| **Global context** | The agent reads `CLAUDE.md` or `AGENTS.md` at the start of each session. It gives the project map, the commands, and the non-negotiable rules, and points to the detailed rules. One source serves Claude Code, Codex, and Gemini CLI. | `CodeRules.md` has 102 numbered rules. Reviews cite rule IDs, such as `P-2`. |
+| **Skill structure** | Each skill uses the same sections: an evidence contract, non-negotiables, gotchas, stop conditions, and an output contract. `SKILL.md` stays short, and the agent reads a reference file only when a step needs it. | Each gotcha is a mistake from a real run, and the fix for it. |
+| **Evidence for each output** | The evidence contract names the source for each question. When the evidence is missing, the agent records a question and does not guess. | Each test traces to a quote from the requirement. Each locator comes from Playwright CLI output. |
+| **Structured output contract** | The output has fixed fields, and each field has a rule. A script checks each field, so a missing or wrong field fails the check. | In the coverage trace, each requirement claim has a status, and each `Then` links to its claim. |
+| **Machine checks** | ESLint and TypeScript check the code. Custom scripts check the rules that a general lint tool cannot check. Runtime guards stop a wrong run. | `jira-sync lint` checks each feature and its coverage trace. Other scripts check the regression suite mapping and that each Wiki citation still matches its source. |
+| **Independent review** | A second agent reviews the output in a fresh context. It reads only the requirement and the output, not the author's reasoning, so it does not share the author's blind spots. | The reviewer lists the requirement claims again and finds the ones that no test covers. |
+| **Skill evaluation** | Golden tasks with written checks measure each skill. A run with the skill and a run without it show what the skill adds. The tasks run again after each skill change, to show that it improves and does not regress. | See [Skill Evaluation](#4-skill-evaluation). |
 
 ### 4. Skill Evaluation
 
