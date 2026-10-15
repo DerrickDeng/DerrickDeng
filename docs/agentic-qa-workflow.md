@@ -82,14 +82,14 @@ a major skill change to find regressions.
 
 **With and without the skill.** Both configurations work in the same
 repository, with the same rules files and lint. The difference shows what the
-skill adds. The samples are small, so the results show passed checks, not
-success rates.
+skill adds. The percentage is the share of checks that passed. The samples
+are small, so it is not a task success rate.
 
 | Skill | Without the skill | With the skill | Sample |
 |---|---|---|---|
-| [functional-test-design](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md#functional-test-design-with-and-without-the-skill) | 141 / 165 | **159 / 165** | 4 tasks × 3 runs |
-| [playwright-bdd-step-implementor](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-step-implementor-with-and-without-the-skill) | 91 / 157 | **150 / 157** | 9 tasks × 1 run |
-| [playwright-bdd-test-healer](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-test-healer-with-and-without-the-skill) | 44 / 69 | **65 / 69** | 4 tasks × 1 run |
+| [functional-test-design](https://github.com/DerrickDeng/ai-native-test-design/blob/main/docs/evaluation/results.md#functional-test-design-with-and-without-the-skill) | 141 / 165 (85%) | **159 / 165 (96%)** | 4 tasks × 3 runs |
+| [playwright-bdd-step-implementor](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-step-implementor-with-and-without-the-skill) | 91 / 157 (58%) | **150 / 157 (96%)** | 9 tasks × 1 run |
+| [playwright-bdd-test-healer](https://github.com/DerrickDeng/ai-native-ui-automation/blob/main/docs/evaluation/results.md#playwright-bdd-test-healer-with-and-without-the-skill) | 44 / 69 (64%) | **65 / 69 (94%)** | 4 tasks × 1 run |
 
 Deterministic gates run on each change: 66 CLI and lint tests, and 42
 framework and skill contract tests.
