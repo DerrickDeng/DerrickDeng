@@ -46,7 +46,7 @@ uses these tools in two agent skills:
 
 The results are in the
 [Agentic QA Workflow](agentic-qa-workflow.md#key-outcomes): a BDD scenario of
-about 15 steps takes about 30 minutes instead of a day, and a test repair takes
+about 20 steps takes about 30 minutes instead of a day, and a test repair takes
 about 30 minutes instead of half a day.
 
 [Back to home](../README.md)
