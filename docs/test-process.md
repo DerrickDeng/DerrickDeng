@@ -6,7 +6,7 @@ A stage-by-stage view of the test process. Each stage shows its owners, tasks, a
 
 The PDF supports zooming and text selection. Download the HTML and open it in a browser for the responsive version.
 
-![Phase 1 - Requirement Analysis and Test Design: QA and PO responsibilities and the test design exit gate.](../assets/test-process/01-test-design.png)
+![Phase 1 - Requirement Analysis and Test Design: QA test design, developer test-case review, PO acceptance-test approval, and the test design exit gate.](../assets/test-process/01-test-design.png)
 
 ![Phase 2 - Sprint Development: developer and QA responsibilities and the SIT entry gate.](../assets/test-process/02-sprint-development.png)
 

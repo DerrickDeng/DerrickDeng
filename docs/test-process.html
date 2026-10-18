@@ -127,13 +127,14 @@
     <section class="phase cyan" aria-labelledby="phase-1">
       <div class="heading">
         <div class="phase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4.5h6M9 9h6M9 13h6M9 17h4"/></svg></div>
-        <div><h2 id="phase-1">Phase 1 — Requirement Analysis &amp; Test Design</h2><p class="owner">Owner: QA | Reviewer: PO team</p></div>
+        <div><h2 id="phase-1">Phase 1 — Requirement Analysis &amp; Test Design</h2><p class="owner">Owner: QA | Reviewers: Developers / PO team</p></div>
       </div>
-      <div class="two-col">
+      <div class="three-col">
         <div class="inner"><h3>QA</h3><p>Analyze Requirements &amp; Business Rules</p><p>Write SIT Test Cases</p><p><strong>Tag the Acceptance Tests (AT) for PO Team Review</strong></p><p>Select Automation Candidates</p></div>
+        <div class="inner"><h3>Developers</h3><p>Review SIT Test Cases</p></div>
         <div class="inner"><h3>PO Team</h3><p>Clarify Requirements &amp; Answer Open Questions</p><p>Review Business Coverage</p><p>Approve the Acceptance Tests (AT)</p></div>
       </div>
-      <div class="gate"><span class="seal">✓</span><div><strong>Test Design Exit Gate</strong><span>PO team approved the AT. SIT test cases are ready.</span></div></div>
+      <div class="gate"><span class="seal">✓</span><div><strong>Test Design Exit Gate</strong><span>Developer review completed. PO team approved the AT. SIT test cases are ready.</span></div></div>
     </section>
 
     <div class="flow-arrow" aria-hidden="true"></div>
@@ -237,7 +238,7 @@
       <h2 id="ownership-heading" class="section-title">Ownership Summary</h2>
       <div class="ownership">
         <div class="ownership-card" style="--accent:#0891b2"><h3>QA (Test Design)</h3><p>SIT Test Cases, AT Tagging &amp; Automation Candidates</p></div>
-        <div class="ownership-card" style="--accent:#2563eb"><h3>Developers</h3><p>Unit &amp; Integration Tests, Smoke Tests, Performance &amp; Penetration Tests</p></div>
+        <div class="ownership-card" style="--accent:#2563eb"><h3>Developers</h3><p>Test Case Review, Unit &amp; Integration Tests, Smoke Tests, Performance &amp; Penetration Tests</p></div>
         <div class="ownership-card" style="--accent:#059669"><h3>QA (SIT)</h3><p>System Validation &amp; SIT Automation</p></div>
         <div class="ownership-card" style="--accent:#b96b04"><h3>PO Team</h3><p>Requirement Clarification, AT Approval &amp; Business Acceptance</p></div>
         <div class="ownership-card" style="--accent:#7c3aed"><h3>QA (Regression)</h3><p>User Journey Automation, Pre-release Regression &amp; Suite Maintenance</p></div>
